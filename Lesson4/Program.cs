@@ -7,13 +7,17 @@ decimal tipPercentage = Convert.ToDecimal(Console.ReadLine());
 
 //Display the entered values
 Console.WriteLine("\nBill Details: ");
-Console.WriteLine($"Bill Amount: {billAmount}");
+Console.WriteLine($"Bill Amount: {billAmount:C}");
 Console.WriteLine($"Tip Percentage: {tipPercentage}");
 
 //Calculate the tip amount
-decimal tipAmount =  billAmount * tipPercentage / 100;
+decimal tipAmount = Math.Round(billAmount * tipPercentage / 100 , 2);
 decimal totalAmount = billAmount + tipAmount;
 
 //Display the results
-Console.WriteLine($"\nTip Amount: {tipAmount}");
-Console.WriteLine($"Total Amount: {totalAmount}");
+Console.WriteLine($"\nTip Amount: {tipAmount:C}");
+Console.WriteLine($"Total Amount: {totalAmount:C}");
+
+//Compare with a previous total
+decimal previousTotal = 40.00m;
+Console.WriteLine($"Higher Total: {Math.Max(previousTotal, totalAmount):C}");
